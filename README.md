@@ -24,6 +24,10 @@ Residents may miss useful services, opportunities, or events because information
 
 The project uses documented regional and national context to shape the product assumptions for Al Qua'a. See `docs/community-insights.md` for demographics, pain points, personas, and source links.
 
+## Planning Method
+
+The repository uses an IB Computer Science IA-inspired documentation workflow: problem rationale, success criteria, justified technical choices, timeline, and evidence-based evaluation. See `docs/METHODOLOGY.md` for the full approach.
+
 ## Solution Overview
 
 AlQua'a Services will provide:
@@ -79,6 +83,11 @@ Setup instructions will be added once the first runnable prototype is committed.
 /
 ├─ docs/                 Judging criteria, feasibility, scalability, and team notes
 ├─ docs/criteria/        One document per judging criterion
+├─ docs/METHODOLOGY.md   Planning, development, and evaluation method
+├─ docs/rationale.md     Problem rationale and stakeholder fit
+├─ docs/success-criteria.md
+├─ docs/technical-justification.md
+├─ docs/timeline.md
 ├─ evidence/             Research evidence, tests, screenshots, and validation notes
 ├─ public/               Static assets for deployment
 ├─ src/                  Application source files
