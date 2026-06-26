@@ -14,6 +14,23 @@ Build a reliable, fast, and easy-to-verify prototype that demonstrates the full 
 | Data | Static JSON | Allows realistic sample listings without backend setup |
 | Hosting | GitHub Pages or Vercel | Free or low-cost, public, fast to verify |
 | Resident authentication | None for prototype | Reduces friction and matches the discovery-first use case |
+| AI query handling | Local intent matching first | Satisfies query-understanding evidence without relying on network calls during judging |
+| Notifications | WhatsApp share/deep-link first | Familiar channel, measurable timing, lower risk than broadcast infrastructure |
+
+## Library Selection Rules
+
+Any library added during the build must support the success criteria in `docs/success-criteria.md`.
+
+| Need | Preferred Choice | Reason |
+| --- | --- | --- |
+| UI rendering | Plain DOM or small local modules | Keeps load time under 3 seconds on simulated 3G |
+| Icons | Inline accessible text/icons or a small icon subset | Avoids heavy bundles |
+| AI/query matching | Local keyword/intent matcher before external AI APIs | Makes SC4 testable without network dependency |
+| Accessibility testing | WAVE, Lighthouse, or axe tooling | Supports SC9 evidence |
+| Performance testing | Lighthouse/WebPageTest | Supports SC1 evidence |
+| WhatsApp action | `wa.me` links or Web Share API fallback | Supports SC5 without backend risk |
+
+Do not add a framework, component library, mapping SDK, or external AI SDK unless it directly improves a documented criterion and does not weaken SC1, SC2, or SC9.
 
 ## Why Not a Backend First
 
@@ -58,6 +75,8 @@ This avoids building three separate systems and helps scalability. A community c
 | Data becomes outdated | Add future admin and expiry-date plan |
 | Judges question evidence | Store claims, tests, screenshots, and source confidence in the repo |
 | App fails live | Keep static build simple and prepare screenshots/demo video backup |
+| AI feature becomes too broad | Limit AI scope to matching resident queries to local listings |
+| WhatsApp integration becomes complex | Use measurable share/deep-link flow first, then document future broadcast path |
 
 ## Future Upgrade Path
 

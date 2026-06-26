@@ -1,57 +1,74 @@
 # Success Criteria
 
-These criteria define what a successful hackathon prototype must prove. They are intentionally measurable so the project can be evaluated with evidence.
+These are the 15 measurable targets for the hackathon prototype. They are written as evidence requirements so the repository can prove progress instead of only describing intentions.
 
-## Functional Success Criteria
+## Evidence Collection for Success Criteria
 
-| ID | Criterion | Measurement | Evidence Location |
-| --- | --- | --- | --- |
-| F1 | Users can view service, event, and opportunity listings. | At least one visible listing of each type. | `data/sample-listings.json`, screenshots |
-| F2 | Users can filter listings by audience. | Persona filters return relevant results. | `evidence/user-testing.md` |
-| F3 | Users can filter listings by category or type. | Category/type controls update the listing view. | `evidence/user-testing.md` |
-| F4 | Users can search by Arabic or English keywords. | Search test cases return expected listings. | `evidence/user-testing.md` |
-| F5 | Users can act on a listing. | Listing provides phone, WhatsApp, or map action. | screenshots, demo video |
+### Technical Performance: Criteria 1-5
 
-## Usability Success Criteria
+| ID | Success Criterion | Evidence | File | Status |
+| --- | --- | --- | --- | --- |
+| SC1 | Load time under 3 seconds on simulated 3G. | WebPageTest, Lighthouse throttling, or browser performance screenshot. | `evidence/performance.md` | [ ] Tested [ ] Documented |
+| SC2 | Works on iOS and Android mobile browsers. | Screenshots or device/browser test notes from both environments. | `evidence/device-compatibility.md` | [ ] Tested [ ] Documented |
+| SC3 | Arabic RTL layout renders correctly. | Screenshot comparison showing Arabic layout, alignment, and readable labels. | `evidence/arabic-interface.md` | [ ] Tested [ ] Documented |
+| SC4 | AI-assisted query handling understands at least 85% of test queries. | 20 logged Arabic/English test queries with expected vs actual result. | `evidence/ai-accuracy-test.csv` | [ ] Tested [ ] Documented |
+| SC5 | WhatsApp delivery or share flow completes in under 30 seconds. | Timestamp logs from trigger to received/opened WhatsApp message or share intent. | `evidence/notification-speed.md` | [ ] Tested [ ] Documented |
 
-| ID | Criterion | Measurement | Evidence Location |
-| --- | --- | --- | --- |
-| U1 | Core discovery flow takes under 3 clicks. | Manual flow count from home to relevant listing. | `evidence/user-testing.md` |
-| U2 | Core resident flow takes under 30 seconds. | Timed manual test. | `evidence/performance.md` |
-| U3 | Interface works on mobile viewport. | Tested at common mobile width. | screenshots |
-| U4 | Arabic-first use is supported. | Main labels and direction support Arabic-first experience. | screenshots |
-| U5 | No login is required for resident discovery. | User can browse without authentication. | demo video |
+### Usability: Criteria 6-10
 
-## Evidence Success Criteria
+| ID | Success Criterion | Evidence | File | Status |
+| --- | --- | --- | --- | --- |
+| SC6 | At least 80% task completion in user testing. | User testing with up to 15 people, or clearly marked smaller hackathon sample if 15 is not reached. | `evidence/user-testing.md` | [ ] Tested [ ] Documented |
+| SC7 | Average task completion time under 3 minutes. | Stopwatch measurements during user testing. | `evidence/user-testing.md` | [ ] Tested [ ] Documented |
+| SC8 | Average ease-of-use rating is 4 or higher out of 5. | Post-test survey rating. | `evidence/user-testing.md` | [ ] Tested [ ] Documented |
+| SC9 | Zero critical accessibility violations. | WAVE, Lighthouse accessibility, or axe result screenshot. | `evidence/accessibility.md` | [ ] Tested [ ] Documented |
+| SC10 | Directory contains at least 20 service, opportunity, or event records. | Data file count and app screenshot. | `evidence/service-coverage.md` | [ ] Tested [ ] Documented |
 
-| ID | Criterion | Measurement | Evidence Location |
-| --- | --- | --- | --- |
-| E1 | Research assumptions are sourced. | Community research includes source links and confidence notes. | `docs/community-insights.md` |
-| E2 | Claims are falsifiable. | Claims are written as testable statements. | `evidence/README.md` |
-| E3 | Demo proves the core flow. | Demo video or screenshots show end-to-end use. | `demo/`, `evidence/screenshots/` |
-| E4 | Deployment is realistic. | Hosting and maintenance assumptions are documented. | `docs/deployment.md` |
+### Impact: Criteria 11-13
 
-## Completion Definition
+| ID | Success Criterion | Evidence | File | Status |
+| --- | --- | --- | --- | --- |
+| SC11 | Directory includes at least 3 service categories. | Category list visible in app and data file. | `evidence/service-coverage.md` | [ ] Tested [ ] Documented |
+| SC12 | Survey or interview evidence validates the need. | Target: 50+ survey responses if reachable; otherwise document smaller sample and limitation honestly. | `evidence/survey-results.csv` | [ ] Tested [ ] Documented |
+| SC13 | At least 70% of surveyed users say they would use it. | Survey question summary. | `evidence/survey-results.md` | [ ] Tested [ ] Documented |
 
-The hackathon prototype is considered ready for submission when:
+### Scalability: Criteria 14-15
 
-- All functional criteria F1-F5 are met.
-- At least four usability criteria are met.
-- Evidence files are updated with screenshots, test notes, or demo links.
-- README includes run instructions, live URL if available, and demo material.
-- Scoring tracker shows no missing evidence for criteria 1-7.
+| ID | Success Criterion | Evidence | File | Status |
+| --- | --- | --- | --- | --- |
+| SC14 | A new community configuration can be created in under 2 hours. | Timed replication test using copied data/config labels. | `evidence/replication-test.md` | [ ] Tested [ ] Documented |
+| SC15 | MIT license is included in the repository. | `LICENSE` file exists. | `LICENSE` | [x] Tested [x] Documented |
+
+## Completion Status
+
+Validated criteria: **1 / 15**
+
+Submission readiness: [ ] All evidence documented
+
+## Evidence Priorities
+
+1. Build the 20+ listing data set because it unlocks SC10 and SC11.
+2. Implement Arabic RTL layout before final UI polish because it affects SC3 and accessibility.
+3. Keep AI scope narrow: classify resident queries into relevant listings, not a general chatbot.
+4. Use WhatsApp share or delivery flow that can be timestamped reliably within the hackathon constraints.
+5. Collect user-testing evidence early, even if the sample size is smaller than the ideal target.
 
 ## Final Evaluation Template
 
-| Criterion ID | Pass / Partial / Fail | Evidence | Notes |
+| Criterion | Pass / Partial / Fail | Evidence Link | Notes |
 | --- | --- | --- | --- |
-| F1 | Pending | Pending | Pending |
-| F2 | Pending | Pending | Pending |
-| F3 | Pending | Pending | Pending |
-| F4 | Pending | Pending | Pending |
-| F5 | Pending | Pending | Pending |
-| U1 | Pending | Pending | Pending |
-| U2 | Pending | Pending | Pending |
-| U3 | Pending | Pending | Pending |
-| U4 | Pending | Pending | Pending |
-| U5 | Pending | Pending | Pending |
+| SC1 | Pending | `evidence/performance.md` | Pending |
+| SC2 | Pending | `evidence/device-compatibility.md` | Pending |
+| SC3 | Pending | `evidence/arabic-interface.md` | Pending |
+| SC4 | Pending | `evidence/ai-accuracy-test.csv` | Pending |
+| SC5 | Pending | `evidence/notification-speed.md` | Pending |
+| SC6 | Pending | `evidence/user-testing.md` | Pending |
+| SC7 | Pending | `evidence/user-testing.md` | Pending |
+| SC8 | Pending | `evidence/user-testing.md` | Pending |
+| SC9 | Pending | `evidence/accessibility.md` | Pending |
+| SC10 | Pending | `evidence/service-coverage.md` | Pending |
+| SC11 | Pending | `evidence/service-coverage.md` | Pending |
+| SC12 | Pending | `evidence/survey-results.csv` | Pending |
+| SC13 | Pending | `evidence/survey-results.md` | Pending |
+| SC14 | Pending | `evidence/replication-test.md` | Pending |
+| SC15 | Pass | `LICENSE` | MIT license added |

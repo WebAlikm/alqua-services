@@ -8,7 +8,17 @@ Residents in Al Qua'a and similar rural communities may miss useful services, op
 
 **Challenge 4 - Connecting residents to services, opportunities and events**
 
-The project focuses on making local discovery simpler, faster, and more actionable for residents.
+The challenge states that residents are not always aware of local services, opportunities, and events, and that there is no simple way to find them or stay informed. AlQua'a Services addresses that specific gap by combining a structured local directory with Arabic-first search, resident-friendly filtering, and WhatsApp-style delivery paths.
+
+## Specific Challenge Details
+
+Challenge 4 is not only a listing problem. It has three parts:
+
+1. **Discovery:** residents need to find services, opportunities, and events that already exist.
+2. **Relevance:** residents need to see the items that match their situation, such as family, healthcare, youth, entrepreneurs, or older residents.
+3. **Staying informed:** residents need a low-friction way to receive or share updates without checking many separate channels.
+
+The product strategy is to build a focused prototype that proves these three parts through a searchable directory, Arabic RTL interface, AI-assisted query handling, and WhatsApp-first notification or sharing flow.
 
 ## Target Users
 
@@ -48,7 +58,18 @@ The value is not only convenience. Better discovery can help residents:
 
 ## Proposed Solution
 
-AlQua'a Services is a mobile-first discovery hub for local services, events, and opportunities. It gives residents one place to search, filter, and act through contact, WhatsApp, or map links.
+AlQua'a Services is a mobile-first discovery hub for local services, events, and opportunities. It gives residents one place to search, filter, ask simple natural-language questions, and act through contact, WhatsApp, or map links.
+
+## Challenge-to-Feature Mapping
+
+| Challenge Need | Product Response | Evidence Target |
+| --- | --- | --- |
+| Residents do not know what exists | Directory with 20+ service/opportunity/event listings | `evidence/service-coverage.md` |
+| Residents need relevant information | Audience, category, and urgency filters | `evidence/user-testing.md` |
+| Arabic-first residents need simple access | RTL Arabic interface and plain labels | `evidence/arabic-interface.md` |
+| Residents may ask in natural language | AI-assisted query layer tested against 20 queries | `evidence/ai-accuracy-test.csv` |
+| Residents need updates in familiar channels | WhatsApp delivery/share flow with timestamp evidence | `evidence/notification-speed.md` |
+| Rural deployment must be realistic | Static-first architecture and low-cost deployment plan | `docs/technical-justification.md` |
 
 ## Local Fit
 
@@ -63,3 +84,7 @@ The product is designed for:
 ## Expected Impact
 
 The project should help residents move from "I do not know where to look" to "I found a relevant listing and know what to do next" in under one minute.
+
+## Boundaries
+
+The hackathon prototype will not claim to be an official government service or emergency system. It will demonstrate a practical discovery layer that can be maintained by a trusted community organization and later connected to official data sources or notification systems.

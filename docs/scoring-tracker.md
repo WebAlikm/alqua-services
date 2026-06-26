@@ -21,7 +21,20 @@ Final round additional target:
 ## Priority Order
 
 1. Build a working end-to-end resident flow.
-2. Add sample listings that cover services, events, and opportunities.
-3. Record evidence for search, filters, and contact actions.
-4. Update README with live demo, run steps, and proof.
-5. Prepare final presentation script only after the prototype is stable.
+2. Add 20+ sample listings across at least 3 categories.
+3. Implement Arabic RTL layout and prove it with screenshots.
+4. Add local AI-assisted query matching and run the 20-query test log.
+5. Add WhatsApp share/delivery flow and timestamp the result.
+6. Record performance, accessibility, device, and user-testing evidence.
+7. Update README with live demo, run steps, and proof.
+8. Prepare final presentation script only after the prototype is stable.
+
+## Success Criteria Validation
+
+See `docs/success-criteria.md` for the 15 measurable success criteria.
+
+Current validation count: **1 / 15**
+
+Validated:
+
+- SC15: MIT license included.
