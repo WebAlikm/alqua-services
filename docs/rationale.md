@@ -8,7 +8,7 @@ Residents in Al Qua'a and similar rural communities may miss useful services, op
 
 **Challenge 4 - Connecting residents to services, opportunities and events**
 
-The challenge states that residents are not always aware of local services, opportunities, and events, and that there is no simple way to find them or stay informed. AlQua'a Services addresses that specific gap by combining a structured local directory with Arabic-first search, resident-friendly filtering, and WhatsApp-style delivery paths.
+The challenge states that residents are not always aware of local services, opportunities, and events, and that there is no simple way to find them or stay informed. AlQua'a Services addresses that specific gap with a structured local directory, Arabic-first navigation, resident-friendly filtering, and direct contact actions.
 
 ## Specific Challenge Details
 
@@ -18,7 +18,7 @@ Challenge 4 is not only a listing problem. It has three parts:
 2. **Relevance:** residents need to see the items that match their situation, such as family, healthcare, youth, entrepreneurs, or older residents.
 3. **Staying informed:** residents need a low-friction way to receive or share updates without checking many separate channels.
 
-The product strategy is to build a focused prototype that proves these three parts through a searchable directory, Arabic RTL interface, AI-assisted query handling, and WhatsApp-first notification or sharing flow.
+The product strategy is to build a focused prototype that proves these three parts through a searchable directory, Arabic mobile interface, category filters, and simple contact/map actions.
 
 ## Target Users
 
@@ -58,7 +58,7 @@ The value is not only convenience. Better discovery can help residents:
 
 ## Proposed Solution
 
-AlQua'a Services is a mobile-first discovery hub for local services, events, and opportunities. It gives residents one place to search, filter, ask simple natural-language questions, and act through contact, WhatsApp, or map links.
+AlQua'a Services is a mobile-first discovery hub for local services, events, and opportunities. It gives residents one place to search, filter, and act through contact, WhatsApp, or map links.
 
 ## Challenge-to-Feature Mapping
 
@@ -66,9 +66,8 @@ AlQua'a Services is a mobile-first discovery hub for local services, events, and
 | --- | --- | --- |
 | Residents do not know what exists | Directory with 20+ service/opportunity/event listings | `evidence/service-coverage.md` |
 | Residents need relevant information | Audience, category, and urgency filters | `evidence/user-testing.md` |
-| Arabic-first residents need simple access | RTL Arabic interface and plain labels | `evidence/arabic-interface.md` |
-| Residents may ask in natural language | AI-assisted query layer tested against 20 queries | `evidence/ai-accuracy-test.csv` |
-| Residents need updates in familiar channels | WhatsApp delivery/share flow with timestamp evidence | `evidence/notification-speed.md` |
+| Arabic-first residents need simple access | Arabic interface and plain labels | `evidence/screenshots/` |
+| Residents need to act after discovery | Phone, WhatsApp, or map links on listings | `evidence/user-testing.md` |
 | Rural deployment must be realistic | Static-first architecture and low-cost deployment plan | `docs/technical-justification.md` |
 
 ## Local Fit

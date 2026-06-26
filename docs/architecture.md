@@ -44,7 +44,7 @@ Expected fields:
 1. Replace static JSON with Supabase, Firebase, or another managed data store.
 2. Add trusted admin login for community maintainers.
 3. Add moderation and listing expiry dates.
-4. Add WhatsApp or SMS notification opt-in.
+4. Add WhatsApp sharing or update opt-in if there is enough validation.
 5. Add multi-community configuration.
 
 ## Constraints

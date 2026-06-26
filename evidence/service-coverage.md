@@ -1,6 +1,6 @@
 # Service Coverage
 
-Evidence for SC10 and SC11: directory includes at least 20 records and at least 3 categories.
+Evidence for service coverage: directory includes at least 20 records, at least 3 categories, and one shared listing structure for services, events, and opportunities.
 
 ## Coverage Targets
 

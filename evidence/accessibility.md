@@ -1,6 +1,6 @@
 # Accessibility Evidence
 
-Evidence for SC9: zero critical accessibility violations.
+Evidence for SC5: no critical accessibility issues in automated checks.
 
 ## Planned Tools
 
