@@ -20,6 +20,10 @@ Primary users:
 
 Residents may miss useful services, opportunities, or events because information is fragmented across informal channels. The project aims to make discovery faster, clearer, and easier to verify.
 
+## Community Insights
+
+The project uses documented regional and national context to shape the product assumptions for Al Qua'a. See `docs/community-insights.md` for demographics, pain points, personas, and source links.
+
 ## Solution Overview
 
 AlQua'a Services will provide:
