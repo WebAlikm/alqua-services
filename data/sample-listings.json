@@ -1,1 +1,522 @@
-[]
+[
+  {
+    "id": "health-clinic-001",
+    "type": "service",
+    "category": "healthcare",
+    "audience": ["families", "seniors"],
+    "title": {
+      "en": "Al Qua'a Health Clinic",
+      "ar": "عيادة القوع الصحية"
+    },
+    "summary": {
+      "en": "Primary healthcare, appointments, and family medicine information for residents.",
+      "ar": "معلومات عن الرعاية الصحية الأولية والمواعيد وطب الأسرة للسكان."
+    },
+    "urgency": "normal",
+    "availability": {
+      "en": "Weekdays",
+      "ar": "أيام الأسبوع"
+    },
+    "location": "Al Qua'a",
+    "contact": "+971300000001",
+    "whatsapp": "https://wa.me/971300000001",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Abu+Dhabi",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["clinic", "doctor", "family", "health", "عيادة", "صحة", "أسرة"]
+  },
+  {
+    "id": "health-mobile-screening-002",
+    "type": "event",
+    "category": "healthcare",
+    "audience": ["families", "seniors"],
+    "title": {
+      "en": "Mobile Health Screening Day",
+      "ar": "يوم الفحص الصحي المتنقل"
+    },
+    "summary": {
+      "en": "A sample community health screening event for blood pressure, diabetes checks, and basic advice.",
+      "ar": "فعالية مجتمعية تجريبية للفحص الصحي تشمل قياس الضغط وفحص السكري ونصائح أولية."
+    },
+    "urgency": "this-week",
+    "availability": {
+      "en": "Saturday morning",
+      "ar": "صباح السبت"
+    },
+    "location": "Community Majlis",
+    "contact": "+971300000002",
+    "whatsapp": "https://wa.me/971300000002",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Community+Majlis",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["screening", "blood pressure", "diabetes", "فحص", "ضغط", "سكري"]
+  },
+  {
+    "id": "health-pharmacy-delivery-003",
+    "type": "service",
+    "category": "healthcare",
+    "audience": ["families", "seniors"],
+    "title": {
+      "en": "Medicine Pickup and Delivery Help",
+      "ar": "مساعدة استلام وتوصيل الأدوية"
+    },
+    "summary": {
+      "en": "Community-supported pickup coordination for residents who need help collecting medicine.",
+      "ar": "تنسيق مجتمعي لمساعدة السكان في استلام الأدوية عند الحاجة."
+    },
+    "urgency": "urgent",
+    "availability": {
+      "en": "On request",
+      "ar": "حسب الطلب"
+    },
+    "location": "Al Qua'a and nearby farms",
+    "contact": "+971300000003",
+    "whatsapp": "https://wa.me/971300000003",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Abu+Dhabi",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["medicine", "pharmacy", "delivery", "دواء", "صيدلية", "توصيل"]
+  },
+  {
+    "id": "health-seniors-support-004",
+    "type": "service",
+    "category": "healthcare",
+    "audience": ["seniors", "families"],
+    "title": {
+      "en": "Senior Appointment Support",
+      "ar": "مساندة مواعيد كبار السن"
+    },
+    "summary": {
+      "en": "Family-helper guidance for booking and preparing for healthcare appointments.",
+      "ar": "إرشاد لمساعدة الأسرة في حجز المواعيد الصحية وتجهيز كبار السن لها."
+    },
+    "urgency": "normal",
+    "availability": {
+      "en": "Daily",
+      "ar": "يوميًا"
+    },
+    "location": "Al Qua'a",
+    "contact": "+971300000004",
+    "whatsapp": "https://wa.me/971300000004",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Abu+Dhabi",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["senior", "appointment", "healthcare", "كبار السن", "موعد", "صحة"]
+  },
+  {
+    "id": "education-school-updates-005",
+    "type": "service",
+    "category": "education",
+    "audience": ["families", "youth"],
+    "title": {
+      "en": "School Announcements Hub",
+      "ar": "مركز إعلانات المدرسة"
+    },
+    "summary": {
+      "en": "A central place for school reminders, parent meetings, and student activity updates.",
+      "ar": "مكان واحد لتذكيرات المدرسة واجتماعات أولياء الأمور وأنشطة الطلاب."
+    },
+    "urgency": "this-week",
+    "availability": {
+      "en": "Updated weekly",
+      "ar": "يُحدّث أسبوعيًا"
+    },
+    "location": "Al Qua'a",
+    "contact": "+971300000005",
+    "whatsapp": "https://wa.me/971300000005",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+School",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["school", "parents", "students", "مدرسة", "أولياء الأمور", "طلاب"]
+  },
+  {
+    "id": "education-homework-club-006",
+    "type": "event",
+    "category": "education",
+    "audience": ["youth", "families"],
+    "title": {
+      "en": "Evening Homework Club",
+      "ar": "نادي الواجبات المسائي"
+    },
+    "summary": {
+      "en": "A weekly support session for students who need a quiet place and basic homework help.",
+      "ar": "جلسة أسبوعية لدعم الطلاب الذين يحتاجون إلى مكان هادئ ومساعدة أساسية في الواجبات."
+    },
+    "urgency": "this-week",
+    "availability": {
+      "en": "Tuesday evening",
+      "ar": "مساء الثلاثاء"
+    },
+    "location": "Community Center",
+    "contact": "+971300000006",
+    "whatsapp": "https://wa.me/971300000006",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Community+Center",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["homework", "students", "study", "واجبات", "طلاب", "دراسة"]
+  },
+  {
+    "id": "education-youth-digital-007",
+    "type": "opportunity",
+    "category": "education",
+    "audience": ["youth", "entrepreneurs"],
+    "title": {
+      "en": "Youth Digital Skills Workshop",
+      "ar": "ورشة المهارات الرقمية للشباب"
+    },
+    "summary": {
+      "en": "Introductory workshop on online safety, digital forms, and simple business pages.",
+      "ar": "ورشة تمهيدية عن الأمان الرقمي والنماذج الإلكترونية وصفحات الأعمال البسيطة."
+    },
+    "urgency": "this-week",
+    "availability": {
+      "en": "Registration open",
+      "ar": "التسجيل مفتوح"
+    },
+    "location": "Al Qua'a",
+    "contact": "+971300000007",
+    "whatsapp": "https://wa.me/971300000007",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Abu+Dhabi",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["digital", "workshop", "youth", "رقمي", "ورشة", "شباب"]
+  },
+  {
+    "id": "education-library-corner-008",
+    "type": "service",
+    "category": "education",
+    "audience": ["families", "youth"],
+    "title": {
+      "en": "Community Reading Corner",
+      "ar": "ركن القراءة المجتمعي"
+    },
+    "summary": {
+      "en": "Shared book corner and reading sessions for children and families.",
+      "ar": "ركن كتب مشترك وجلسات قراءة للأطفال والأسر."
+    },
+    "urgency": "normal",
+    "availability": {
+      "en": "Weekends",
+      "ar": "عطلة نهاية الأسبوع"
+    },
+    "location": "Community Majlis",
+    "contact": "+971300000008",
+    "whatsapp": "https://wa.me/971300000008",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Community+Majlis",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["reading", "books", "children", "قراءة", "كتب", "أطفال"]
+  },
+  {
+    "id": "business-license-guidance-009",
+    "type": "service",
+    "category": "business",
+    "audience": ["entrepreneurs"],
+    "title": {
+      "en": "Small Business License Guidance",
+      "ar": "إرشاد تراخيص المشاريع الصغيرة"
+    },
+    "summary": {
+      "en": "Guidance checklist for residents exploring a small local business or home project.",
+      "ar": "قائمة إرشادية للسكان الراغبين في بدء مشروع صغير أو منزلي."
+    },
+    "urgency": "normal",
+    "availability": {
+      "en": "By appointment",
+      "ar": "بموعد مسبق"
+    },
+    "location": "Al Qua'a",
+    "contact": "+971300000009",
+    "whatsapp": "https://wa.me/971300000009",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Abu+Dhabi",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["business", "license", "startup", "مشروع", "رخصة", "بداية"]
+  },
+  {
+    "id": "business-local-market-010",
+    "type": "event",
+    "category": "business",
+    "audience": ["entrepreneurs", "families"],
+    "title": {
+      "en": "Weekend Local Market Booths",
+      "ar": "أكشاك السوق المحلي في نهاية الأسبوع"
+    },
+    "summary": {
+      "en": "A sample opportunity for home businesses to reserve a small booth at a local market day.",
+      "ar": "فرصة تجريبية لأصحاب المشاريع المنزلية لحجز كشك صغير في يوم السوق المحلي."
+    },
+    "urgency": "this-week",
+    "availability": {
+      "en": "Friday evening",
+      "ar": "مساء الجمعة"
+    },
+    "location": "Community Market Area",
+    "contact": "+971300000010",
+    "whatsapp": "https://wa.me/971300000010",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Market",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["market", "booth", "home business", "سوق", "كشك", "مشروع منزلي"]
+  },
+  {
+    "id": "business-digital-payments-011",
+    "type": "opportunity",
+    "category": "business",
+    "audience": ["entrepreneurs"],
+    "title": {
+      "en": "Digital Payments Setup Help",
+      "ar": "مساعدة إعداد الدفع الرقمي"
+    },
+    "summary": {
+      "en": "Introductory support for small sellers who want to understand QR payments and payment links.",
+      "ar": "دعم تمهيدي للبائعين الصغار لفهم الدفع عبر الرمز وروابط الدفع."
+    },
+    "urgency": "normal",
+    "availability": {
+      "en": "On request",
+      "ar": "حسب الطلب"
+    },
+    "location": "Al Qua'a",
+    "contact": "+971300000011",
+    "whatsapp": "https://wa.me/971300000011",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Abu+Dhabi",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["payment", "qr", "business", "دفع", "رابط دفع", "مشروع"]
+  },
+  {
+    "id": "business-product-photo-012",
+    "type": "service",
+    "category": "business",
+    "audience": ["entrepreneurs", "youth"],
+    "title": {
+      "en": "Product Photo Day",
+      "ar": "يوم تصوير المنتجات"
+    },
+    "summary": {
+      "en": "A shared photo session to help local sellers create better pictures for WhatsApp and Instagram.",
+      "ar": "جلسة تصوير مشتركة لمساعدة البائعين المحليين على تجهيز صور أفضل للواتساب وإنستغرام."
+    },
+    "urgency": "this-week",
+    "availability": {
+      "en": "Saturday afternoon",
+      "ar": "بعد ظهر السبت"
+    },
+    "location": "Community Center",
+    "contact": "+971300000012",
+    "whatsapp": "https://wa.me/971300000012",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Community+Center",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["photos", "products", "instagram", "تصوير", "منتجات", "إنستغرام"]
+  },
+  {
+    "id": "community-family-night-013",
+    "type": "event",
+    "category": "community",
+    "audience": ["families", "youth", "seniors"],
+    "title": {
+      "en": "Family Community Night",
+      "ar": "ليلة عائلية مجتمعية"
+    },
+    "summary": {
+      "en": "Family-friendly evening with activities, announcements, and community updates.",
+      "ar": "أمسية عائلية تتضمن أنشطة وإعلانات وتحديثات مجتمعية."
+    },
+    "urgency": "this-week",
+    "availability": {
+      "en": "Thursday evening",
+      "ar": "مساء الخميس"
+    },
+    "location": "Community Majlis",
+    "contact": "+971300000013",
+    "whatsapp": "https://wa.me/971300000013",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Community+Majlis",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["family", "event", "community", "عائلة", "فعالية", "مجتمع"]
+  },
+  {
+    "id": "community-volunteer-drivers-014",
+    "type": "service",
+    "category": "community",
+    "audience": ["seniors", "families"],
+    "title": {
+      "en": "Volunteer Ride Coordination",
+      "ar": "تنسيق التوصيل التطوعي"
+    },
+    "summary": {
+      "en": "Community ride coordination for residents who need help reaching nearby appointments or events.",
+      "ar": "تنسيق توصيل مجتمعي للسكان الذين يحتاجون مساعدة للوصول إلى المواعيد أو الفعاليات القريبة."
+    },
+    "urgency": "urgent",
+    "availability": {
+      "en": "On request",
+      "ar": "حسب الطلب"
+    },
+    "location": "Al Qua'a and nearby farms",
+    "contact": "+971300000014",
+    "whatsapp": "https://wa.me/971300000014",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Abu+Dhabi",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["ride", "transport", "volunteer", "توصيل", "تنقل", "تطوع"]
+  },
+  {
+    "id": "community-stargazing-015",
+    "type": "event",
+    "category": "community",
+    "audience": ["families", "youth", "visitors"],
+    "title": {
+      "en": "Al Qua'a Stargazing Evening",
+      "ar": "أمسية رصد النجوم في القوع"
+    },
+    "summary": {
+      "en": "Community stargazing gathering inspired by Al Qua'a's clear desert skies.",
+      "ar": "تجمع مجتمعي لرصد النجوم مستوحى من سماء القوع الصحراوية الصافية."
+    },
+    "urgency": "this-week",
+    "availability": {
+      "en": "Friday night",
+      "ar": "ليلة الجمعة"
+    },
+    "location": "Al Qua'a Desert Area",
+    "contact": "+971300000015",
+    "whatsapp": "https://wa.me/971300000015",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Desert",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["stargazing", "desert", "family", "نجوم", "صحراء", "عائلة"]
+  },
+  {
+    "id": "community-government-help-016",
+    "type": "service",
+    "category": "community",
+    "audience": ["seniors", "families"],
+    "title": {
+      "en": "Digital Government Form Help",
+      "ar": "مساعدة النماذج الحكومية الرقمية"
+    },
+    "summary": {
+      "en": "Basic guidance for residents who need help understanding online service forms.",
+      "ar": "إرشاد بسيط للسكان الذين يحتاجون مساعدة في فهم نماذج الخدمات الإلكترونية."
+    },
+    "urgency": "normal",
+    "availability": {
+      "en": "By appointment",
+      "ar": "بموعد مسبق"
+    },
+    "location": "Community Center",
+    "contact": "+971300000016",
+    "whatsapp": "https://wa.me/971300000016",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Community+Center",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["government", "forms", "digital", "حكومة", "نماذج", "رقمي"]
+  },
+  {
+    "id": "farm-vet-visit-017",
+    "type": "service",
+    "category": "farm-services",
+    "audience": ["farm-owners"],
+    "title": {
+      "en": "Camel and Livestock Vet Visit",
+      "ar": "زيارة بيطرية للإبل والمواشي"
+    },
+    "summary": {
+      "en": "Sample veterinary visit coordination for camel farms and livestock owners.",
+      "ar": "تنسيق تجريبي لزيارة بيطرية لمزارع الإبل وأصحاب المواشي."
+    },
+    "urgency": "urgent",
+    "availability": {
+      "en": "On request",
+      "ar": "حسب الطلب"
+    },
+    "location": "Al Qua'a farms",
+    "contact": "+971300000017",
+    "whatsapp": "https://wa.me/971300000017",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Farms",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["camel", "vet", "livestock", "إبل", "بيطري", "مواشي"]
+  },
+  {
+    "id": "farm-feed-supplier-018",
+    "type": "service",
+    "category": "farm-services",
+    "audience": ["farm-owners", "entrepreneurs"],
+    "title": {
+      "en": "Feed and Supplies Contact List",
+      "ar": "قائمة موردي الأعلاف والمستلزمات"
+    },
+    "summary": {
+      "en": "Consolidated sample contact list for feed, tools, and basic farm supplies.",
+      "ar": "قائمة تجريبية موحدة لموردي الأعلاف والأدوات والمستلزمات الأساسية للمزارع."
+    },
+    "urgency": "normal",
+    "availability": {
+      "en": "Daily",
+      "ar": "يوميًا"
+    },
+    "location": "Al Qua'a and Al Ain Region",
+    "contact": "+971300000018",
+    "whatsapp": "https://wa.me/971300000018",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Abu+Dhabi",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["feed", "supplies", "farm", "أعلاف", "مستلزمات", "مزرعة"]
+  },
+  {
+    "id": "farm-water-maintenance-019",
+    "type": "service",
+    "category": "farm-services",
+    "audience": ["farm-owners"],
+    "title": {
+      "en": "Water Tank and Pump Maintenance",
+      "ar": "صيانة خزانات المياه والمضخات"
+    },
+    "summary": {
+      "en": "Maintenance contact for farms that need water tank, pipe, or pump support.",
+      "ar": "جهة صيانة للمزارع التي تحتاج دعمًا للخزانات أو الأنابيب أو المضخات."
+    },
+    "urgency": "urgent",
+    "availability": {
+      "en": "Emergency requests accepted",
+      "ar": "تُقبل الطلبات الطارئة"
+    },
+    "location": "Al Qua'a farms",
+    "contact": "+971300000019",
+    "whatsapp": "https://wa.me/971300000019",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Farms",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["water", "pump", "maintenance", "مياه", "مضخة", "صيانة"]
+  },
+  {
+    "id": "farm-date-harvest-020",
+    "type": "opportunity",
+    "category": "farm-services",
+    "audience": ["farm-owners", "youth", "entrepreneurs"],
+    "title": {
+      "en": "Seasonal Date Harvest Helpers",
+      "ar": "مساعدو موسم حصاد التمور"
+    },
+    "summary": {
+      "en": "Sample opportunity board for farms seeking temporary help during harvest season.",
+      "ar": "لوحة فرص تجريبية للمزارع التي تبحث عن مساعدة مؤقتة خلال موسم الحصاد."
+    },
+    "urgency": "this-week",
+    "availability": {
+      "en": "Seasonal",
+      "ar": "موسمي"
+    },
+    "location": "Al Qua'a farms",
+    "contact": "+971300000020",
+    "whatsapp": "https://wa.me/971300000020",
+    "mapUrl": "https://maps.google.com/?q=Al+Quaa+Farms",
+    "source": "Sample community listing for demo",
+    "lastUpdated": "2026-06-26",
+    "tags": ["dates", "harvest", "seasonal", "تمور", "حصاد", "موسمي"]
+  }
+]

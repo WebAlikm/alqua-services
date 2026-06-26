@@ -12,9 +12,49 @@ Evidence for service coverage: directory includes at least 20 records, at least 
 
 | Metric | Target | Current | Status |
 | --- | ---: | ---: | --- |
-| Listings | 20 | 0 | Pending |
-| Categories | 3 | 0 | Pending |
-| Listing types | 3 | 0 | Pending |
+| Listings | 20 | 20 | Met with sample data |
+| Categories | 3 | 5 | Met with sample data |
+| Listing types | 3 | 3 | Met with sample data |
+
+## Current Data Summary
+
+| Category | Count |
+| --- | ---: |
+| Healthcare | 4 |
+| Education | 4 |
+| Business | 4 |
+| Community | 4 |
+| Farm and rural services | 4 |
+
+| Listing Type | Count |
+| --- | ---: |
+| Services | 12 |
+| Events | 5 |
+| Opportunities | 3 |
+
+## Data Model Fields
+
+Each listing uses one shared structure:
+
+- `id`
+- `type`
+- `category`
+- `audience`
+- `title.en` / `title.ar`
+- `summary.en` / `summary.ar`
+- `urgency`
+- `availability.en` / `availability.ar`
+- `location`
+- `contact`
+- `whatsapp`
+- `mapUrl`
+- `source`
+- `lastUpdated`
+- `tags`
+
+## Evidence Note
+
+The records are realistic sample listings for the hackathon demo. They are not official service records and should be labeled as sample data in the interface until verified by a trusted community maintainer.
 
 ## Category Plan
 
