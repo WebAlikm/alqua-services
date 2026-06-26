@@ -29,6 +29,27 @@ Any library added during the build must support the success criteria in `docs/su
 
 Do not add a framework, component library, or mapping SDK unless it directly improves a documented criterion and does not weaken load time, mobile usability, or accessibility.
 
+## Service Portal Inspiration
+
+The demo should borrow service-design patterns from UAE public-service portals without copying their complexity.
+
+| Reference | Useful Pattern | How AlQua'a Services Should Use It |
+| --- | --- | --- |
+| DARB / Q Mobility | Focused utility entry point with account-style actions | Keep the first screen task-oriented: search, filter, open listing, contact |
+| UAE Ministry of Interior | Strong trust signals, bilingual service experience, visible loading state, accessibility tooling | Use official-feeling structure: clear header, Arabic/English affordance, high contrast, predictable buttons |
+| ICP | Service directory, online services, contact options, customer happiness links, accessibility and last-updated signals | Use service cards with category, audience, contact method, source, and updated date |
+
+## Demo UI Principles From These References
+
+- Use a calm government-service feel, not a marketing landing page.
+- Put service discovery on the first screen.
+- Make search and category filters more prominent than decorative content.
+- Show trust cues on every listing: source, location, contact method, and last updated date.
+- Provide direct actions: call, WhatsApp, map, and share.
+- Support Arabic-first reading with English fallback.
+- Include accessibility basics: labels, contrast, keyboard focus, and readable text sizes.
+- Avoid login for resident discovery; only future admin maintenance should need authentication.
+
 ## Why Not a Backend First
 
 A backend would be useful for production, but it is not required to prove the core hackathon value. Starting with a backend would add risk:
