@@ -1,29 +1,54 @@
 # Architecture
 
-## Principle
+## Goal
 
-The hackathon build prioritizes a working end-to-end resident discovery flow over complex infrastructure.
+AlQua'a Services is designed as a low-cost, mobile-first discovery hub for local services, opportunities, and events.
 
-## Initial Architecture
+## Hackathon Architecture
 
-- Static web app.
-- Local JSON data source for listings.
-- Client-side search and filtering.
-- Responsive mobile-first interface.
-- Deployable through GitHub Pages or Vercel.
+```text
+Resident browser
+  -> Static web app
+  -> Local JSON listing data
+  -> Search, filter, and listing actions
+  -> WhatsApp, phone, or map links
+```
 
-## Why This Stack
+## Design Decisions
 
-- Fast to build and verify.
-- Easy for judges to run locally.
-- Low operating cost.
-- No backend dependency for the prototype.
-- Straightforward migration path to a database-backed admin system after the hackathon.
+- Use a static web app first so judges can run and verify it easily.
+- Store listings in JSON during the hackathon to avoid backend setup risk.
+- Keep discovery open without resident accounts.
+- Make Arabic-first UX the default product direction.
+- Model services, events, and opportunities with one reusable listing schema.
 
-## Future Extension Points
+## Listing Data Model
 
-- Admin dashboard for trusted community maintainers.
-- Supabase or Firebase data store.
-- WhatsApp broadcast integration.
-- SMS notifications for urgent updates.
-- Multi-community configuration.
+Expected fields:
+
+- `id`
+- `type`
+- `title`
+- `summary`
+- `category`
+- `audience`
+- `urgency`
+- `location`
+- `languages`
+- `contact`
+- `mapUrl`
+- `source`
+
+## Future Production Path
+
+1. Replace static JSON with Supabase, Firebase, or another managed data store.
+2. Add trusted admin login for community maintainers.
+3. Add moderation and listing expiry dates.
+4. Add WhatsApp or SMS notification opt-in.
+5. Add multi-community configuration.
+
+## Constraints
+
+- The prototype should not depend on paid infrastructure.
+- The repo should remain easy to run locally.
+- Any use of regional or national proxy data must be clearly labeled.

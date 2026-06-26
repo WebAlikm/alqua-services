@@ -60,13 +60,14 @@ The project is structured so new communities can reuse the same app shell with d
 
 ## Evidence Plan
 
-Evidence will be stored in the `docs/` and `data/` folders:
+Evidence will be stored in the `docs/`, `evidence/`, and `data/` folders:
 
 - Sample listings for services, opportunities, and events.
 - Search and filter test cases.
 - Screenshots of the working resident flow.
 - Demo video showing end-to-end discovery.
 - Notes on deployment cost and maintenance assumptions.
+- Rubric-specific scoring notes in `docs/criteria/`.
 
 ## How To Run
 
@@ -76,7 +77,9 @@ Setup instructions will be added once the first runnable prototype is committed.
 
 ```text
 /
-├─ docs/                 Judging evidence, feasibility, scalability, and team notes
+├─ docs/                 Judging criteria, feasibility, scalability, and team notes
+├─ docs/criteria/        One document per judging criterion
+├─ evidence/             Research evidence, tests, screenshots, and validation notes
 ├─ public/               Static assets for deployment
 ├─ src/                  Application source files
 ├─ data/                 Sample community listing data
@@ -92,3 +95,7 @@ See `docs/team.md`.
 ## Built For
 
 Tatweer Hackathon 2026 - Solutions for rural communities.
+
+## Methodology
+
+Data synthesized using Abu Dhabi Census reports, TDRA digital government and telecom context, UAE digital adoption metrics, Tatweer Hackathon challenge material, and regional community news coverage of the Al Ain desert region. Village-level Al Qua'a demographic figures were not found in public official sources, so this repo labels regional or national proxy data clearly.

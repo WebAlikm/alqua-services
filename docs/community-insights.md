@@ -85,3 +85,4 @@ Product implication: avoid forcing account creation in the prototype, make Arabi
 - SCAD Abu Dhabi Census 2024: https://census.scad.gov.ae/home/population?tab=webreport&year=2024&lang=en
 - DataReportal, Digital 2026: The United Arab Emirates: https://datareportal.com/reports/digital-2026-united-arab-emirates
 - Tatweer Hackathon participant handbook and challenge descriptions: https://github.com/TatweerHackathon/Tatweer-Hackathon
+- Associated Press coverage of Al Quaa Desert stargazing context: https://apnews.com/article/ee678e1b535df81edc96f5140ad5e998
