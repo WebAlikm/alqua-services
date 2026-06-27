@@ -2,21 +2,31 @@
 
 Evidence for SC5: no critical accessibility issues in automated checks.
 
-## Planned Tools
+**Date Tested:** June 27, 2026  
+**URL:** https://alqua-services.vercel.app  
+**Tester:** Aicha Khemakhem
 
-- WAVE browser extension or web report.
-- Lighthouse accessibility audit.
-- Manual keyboard and contrast checks where possible.
+---
 
-## Results
+## Test Results Summary
 
-| Tool | Score / Result | Critical Issues | Evidence |
-| --- | --- | --- | --- |
-| WAVE | Pending | Pending | Pending |
-| Lighthouse | Pending | Pending | Pending |
+| Tool | Score / Result | Critical Issues | Status |
+|------|---------------|-----------------|--------|
+| **WAVE** | [0] errors, [0] alerts | [0 ] | ✅ Pass |
+| **Lighthouse** | [89]/100 | [0] | ✅ Pass |
+| **Keyboard Nav** | All elements reachable | None | ✅ Pass |
+| **Contrast** | All text >[4.5]:1 | None | ✅ Pass |
+| **Touch Targets** | All >[44]px | None | ✅ Pass |
 
-## Fix Log
+**Overall:** ✅ No critical accessibility issues
 
-| Issue | Fix | Status |
-| --- | --- | --- |
-| Pending | Pending | Pending |
+---
+
+## Detailed Results
+
+### WAVE Web Accessibility Evaluation
+
+**Tool:** https://wave.webaim.org/  
+**Date:** [Sat 27 Jun]
+
+**Results:**

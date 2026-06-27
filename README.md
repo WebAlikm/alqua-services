@@ -12,7 +12,8 @@
 
 > Tatweer Hackathon 2026 | Challenge 4: Connecting residents to services, opportunities and events
 > Built for Al Qua'a, Al Ain, UAE
-> GitHub: [@WebAlikm](https://github.com/WebAlikm)
+> GitHub: [@WebAlikm](https://github.com/WebAlikm)\
+> Website: (https://alqua-services.vercel.app/)\
 
 Al Qua'a Services is an Arabic-first local discovery hub that helps residents find nearby services, opportunities, and events without relying on scattered WhatsApp messages, word of mouth, or disconnected links.
 
