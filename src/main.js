@@ -24,6 +24,13 @@ const dictionaries = {
       { label: "أبحث عن تدريب للشباب", query: "تدريب شباب" },
       { label: "مساعدة لمزرعتي", query: "مزرعة" }
     ],
+    quickLanesTitle: "مسارات سريعة حسب احتياجك",
+    quickLanesHelp: "اختر مسارًا واحدًا لعرض النتائج المناسبة فورًا.",
+    quickLanes: {
+      fatima: { name: "مسار فاطمة", description: "الأسرة والرعاية الصحية" },
+      ahmed: { name: "مسار أحمد", description: "المزارع والأعمال" },
+      mariam: { name: "مسار مريم", description: "كبار السن والرعاية العاجلة" }
+    },
     categoryLabel: "تصفح حسب الفئة",
     audienceLabel: "الفئة المستفيدة",
     urgencyLabel: "الأولوية",
@@ -49,8 +56,19 @@ const dictionaries = {
     close: "إغلاق",
     noResults: "لا توجد نتائج مطابقة. جرّب وصفًا أقصر أو فئة أخرى.",
     sampleNotice: "بيانات تجريبية وليست سجلات رسمية",
-    sampleStatus: "قائمة تجريبية",
     sampleSource: "نموذج أولي - يحتاج إلى تحقق من الجهة المقدمة",
+    dataStatusLabel: "حالة البيانات",
+    verificationPending: "بانتظار التحقق",
+    officiallyVerified: "مُحدث وموثق رسميًا",
+    authorityLabel: "الجهة المشرفة",
+    authorityPending: "لم يتم تأكيد الجهة المقدمة بعد",
+    quickFaqs: "الأسئلة الشائعة | Quick FAQs",
+    faqTimingQuestion: "كم تستغرق الخدمة؟",
+    faqTimingAnswer: "تختلف المدة حسب الطلب. التوفر المدرج حاليًا: {availability}. يُرجى التأكيد قبل التوجه.",
+    faqAuthorityQuestion: "من المسؤول عن هذه الخدمة؟",
+    faqAuthorityAnswer: "هذه قائمة مجمعة للنموذج الأولي. لم يتم تأكيد الجهة المسؤولة بعد.",
+    faqOpenQuestion: "هل الخدمة متاحة الآن؟",
+    faqOpenAnswer: "حالة التوفر المباشر غير مرتبطة بعد. استخدم الاتصال أو واتساب للتأكيد قبل الزيارة.",
     locations: {
       "Al Qua'a": "القوع",
       "Al Qua'a Desert Area": "منطقة القوع الصحراوية",
@@ -107,6 +125,13 @@ const dictionaries = {
       { label: "Find youth training", query: "youth workshop" },
       { label: "Help for my farm", query: "farm" }
     ],
+    quickLanesTitle: "Quick paths for your needs",
+    quickLanesHelp: "Choose one lane to apply the right filters instantly.",
+    quickLanes: {
+      fatima: { name: "Fatima's Lane", description: "Family and healthcare" },
+      ahmed: { name: "Ahmed's Lane", description: "Farms and business" },
+      mariam: { name: "Mariam's Lane", description: "Seniors and urgent care" }
+    },
     categoryLabel: "Browse by category",
     audienceLabel: "Audience",
     urgencyLabel: "Priority",
@@ -132,8 +157,19 @@ const dictionaries = {
     close: "Close",
     noResults: "No matching results. Try a shorter description or another category.",
     sampleNotice: "Demo data, not official records",
-    sampleStatus: "Demo listing",
     sampleSource: "Prototype entry - provider verification required",
+    dataStatusLabel: "Data status",
+    verificationPending: "Verification pending",
+    officiallyVerified: "Officially verified and current",
+    authorityLabel: "Supervising authority",
+    authorityPending: "Provider not yet confirmed",
+    quickFaqs: "Quick FAQs | الأسئلة الشائعة",
+    faqTimingQuestion: "How long does the service take?",
+    faqTimingAnswer: "Timing varies by request. Current listed availability: {availability}. Confirm before travelling.",
+    faqAuthorityQuestion: "Who runs this service?",
+    faqAuthorityAnswer: "This is an aggregated prototype listing. The responsible provider has not yet been confirmed.",
+    faqOpenQuestion: "Is the service open now?",
+    faqOpenAnswer: "Live opening status is not connected yet. Use Call or WhatsApp to confirm before visiting.",
     locations: {},
     categories: {
       healthcare: "Healthcare",
@@ -170,6 +206,7 @@ const state = {
   audience: "all",
   urgency: "all",
   type: "all",
+  lane: "",
   selectedId: "",
   moreFilters: false
 };
@@ -215,6 +252,16 @@ const categoryKeys = unique(listings.map((item) => item.category));
 const audienceKeys = unique(listings.flatMap((item) => item.audience));
 const urgencyKeys = ["urgent", "this-week", "normal"];
 const typeKeys = ["service", "event", "opportunity"];
+const quickLaneKeys = ["fatima", "ahmed", "mariam"];
+
+const quickLaneMatchers = {
+  fatima: (listing) => listing.category === "healthcare" && listing.audience.includes("families"),
+  ahmed: (listing) =>
+    ["farm-services", "business"].includes(listing.category) &&
+    listing.audience.some((audience) => ["farm-owners", "entrepreneurs"].includes(audience)),
+  mariam: (listing) =>
+    listing.audience.includes("seniors") && ["urgent", "this-week"].includes(listing.urgency)
+};
 
 const ignoredWords = new Set([
   "i",
@@ -279,7 +326,8 @@ const getFilteredListings = () =>
     const audienceMatch = state.audience === "all" || listing.audience.includes(state.audience);
     const urgencyMatch = state.urgency === "all" || listing.urgency === state.urgency;
     const typeMatch = state.type === "all" || listing.type === state.type;
-    return categoryMatch && audienceMatch && urgencyMatch && typeMatch && listingMatchesQuery(listing, state.query);
+    const laneMatch = !state.lane || quickLaneMatchers[state.lane]?.(listing);
+    return laneMatch && categoryMatch && audienceMatch && urgencyMatch && typeMatch && listingMatchesQuery(listing, state.query);
   });
 
 const t = () => dictionaries[state.lang];
@@ -310,30 +358,101 @@ const renderChipGroup = ({ label, group, keys, labels, selected }) => `
   </section>
 `;
 
+const renderQuickLanes = () => `
+  <section class="quick-lanes" aria-labelledby="quick-lanes-heading">
+    <div class="quick-lanes-header">
+      <h3 id="quick-lanes-heading">${t().quickLanesTitle}</h3>
+      <p>${t().quickLanesHelp}</p>
+    </div>
+    <div class="quick-lanes-grid">
+      ${quickLaneKeys
+        .map((key) => {
+          const lane = t().quickLanes[key];
+          const active = state.lane === key;
+          return `
+            <button class="quick-lane quick-lane-${key} ${active ? "is-active" : ""}" type="button" data-quick-lane="${key}" aria-pressed="${active}">
+              <strong>${lane.name}</strong>
+              <span>${lane.description}</span>
+            </button>
+          `;
+        })
+        .join("")}
+    </div>
+  </section>
+`;
+
 const getShareText = (listing) =>
   `${getText(listing.title)} - ${getText(listing.summary)}\n${getLocation(listing)}\n${listing.mapUrl}`;
 
-const renderListingCard = (listing) => `
-  <article class="listing-card">
-    <button class="listing-main" type="button" data-select-listing="${listing.id}" aria-label="${t().openDetails}: ${getText(listing.title)}">
-      <span class="listing-kicker">
+const getListingAuthority = (listing) => {
+  if (!listing.authority) return t().authorityPending;
+  return typeof listing.authority === "string" ? listing.authority : getText(listing.authority);
+};
+
+const renderDataStatus = (listing) => {
+  const isVerified = listing.verificationStatus === "verified" && Boolean(listing.authority);
+
+  return `
+    <section class="data-status-bar ${isVerified ? "is-verified" : "is-pending"}" aria-label="${t().dataStatusLabel}">
+      <div class="data-status-row">
+        <span>${t().dataStatusLabel}</span>
+        <strong><i aria-hidden="true"></i>${isVerified ? t().officiallyVerified : t().verificationPending}</strong>
+      </div>
+      <div class="data-status-row">
+        <span>${t().authorityLabel}</span>
+        <b>${getListingAuthority(listing)}</b>
+      </div>
+    </section>
+  `;
+};
+
+const renderQuickFaqs = (listing) => {
+  const timingAnswer = t().faqTimingAnswer.replace("{availability}", getText(listing.availability));
+
+  return `
+    <section class="quick-faqs" aria-labelledby="quick-faqs-title">
+      <h3 id="quick-faqs-title">${t().quickFaqs}</h3>
+      <div class="faq-list">
+        <details>
+          <summary>${t().faqTimingQuestion}</summary>
+          <p>${timingAnswer}</p>
+        </details>
+        <details>
+          <summary>${t().faqAuthorityQuestion}</summary>
+          <p>${t().faqAuthorityAnswer}</p>
+        </details>
+        <details>
+          <summary>${t().faqOpenQuestion}</summary>
+          <p>${t().faqOpenAnswer}</p>
+        </details>
+      </div>
+    </section>
+  `;
+};
+
+const renderListingCard = (listing) => {
+  const audienceMetadata = listing.audience.map((key) => t().audiences[key] || key).join(" · ");
+
+  return `
+    <article class="listing-card">
+      <button class="listing-main" type="button" data-select-listing="${listing.id}" aria-label="${t().openDetails}: ${getText(listing.title)}">
         <span class="listing-type">${t().types[listing.type]}</span>
-        <span class="demo-status">${t().sampleStatus}</span>
-      </span>
-      <h3>${getText(listing.title)}</h3>
-      <p>${getText(listing.summary)}</p>
-      <span class="listing-facts">
-        <span><b>${t().location}:</b> ${getLocation(listing)}</span>
-        <span><b>${t().availability}:</b> ${getText(listing.availability)}</span>
-      </span>
-    </button>
-    <div class="listing-actions" aria-label="${t().action}">
-      <a class="whatsapp-action" href="${listing.whatsapp}" target="_blank" rel="noreferrer" aria-label="${t().whatsapp}: ${getText(listing.title)}">${t().whatsapp}</a>
-      <a href="tel:${listing.contact}" aria-label="${t().call}: ${getText(listing.title)}">${t().call}</a>
-      <button type="button" data-select-listing="${listing.id}">${t().details}</button>
-    </div>
-  </article>
-`;
+        <h3>${getText(listing.title)}</h3>
+        <p>${getText(listing.summary)}</p>
+        <p class="listing-metadata">${t().categories[listing.category]} · ${audienceMetadata}</p>
+        <span class="listing-facts">
+          <span><b>${t().location}:</b> ${getLocation(listing)}</span>
+          <span><b>${t().availability}:</b> ${getText(listing.availability)}</span>
+        </span>
+      </button>
+      <div class="listing-actions" aria-label="${t().action}">
+        <a class="whatsapp-action" href="${listing.whatsapp}" target="_blank" rel="noreferrer" aria-label="${t().whatsapp}: ${getText(listing.title)}">${t().whatsapp}</a>
+        <a class="call-action" href="tel:${listing.contact}" aria-label="${t().call}: ${getText(listing.title)}">${t().call}</a>
+        <button class="details-action" type="button" data-select-listing="${listing.id}">${t().details}</button>
+      </div>
+    </article>
+  `;
+};
 
 const renderSelectedPanel = (listing) => {
   if (!listing) return "";
@@ -345,6 +464,7 @@ const renderSelectedPanel = (listing) => {
         <span class="listing-type">${t().types[listing.type]}</span>
         <button class="ghost-button" type="button" data-close-detail>${t().close}</button>
       </div>
+      ${renderDataStatus(listing)}
       <h2>${getText(listing.title)}</h2>
       <p>${getText(listing.summary)}</p>
       <dl class="detail-list">
@@ -353,14 +473,14 @@ const renderSelectedPanel = (listing) => {
         <div><dt>${t().audienceLabel}</dt><dd>${listing.audience.map((key) => t().audiences[key]).join(" · ")}</dd></div>
         <div><dt>${t().urgencyLabel}</dt><dd>${t().urgencies[listing.urgency]}</dd></div>
         <div><dt>${t().updated}</dt><dd>${listing.lastUpdated}</dd></div>
-        <div><dt>${t().source}</dt><dd>${t().sampleSource}</dd></div>
       </dl>
       <div class="detail-actions" aria-label="${t().action}">
-        <a class="primary-action" href="${listing.whatsapp}" target="_blank" rel="noreferrer">${t().whatsapp}</a>
-        <a class="secondary-action" href="tel:${listing.contact}">${t().call}</a>
-        <a class="secondary-action" href="${listing.mapUrl}" target="_blank" rel="noreferrer">${t().map}</a>
-        <button class="secondary-action" type="button" data-share-listing="${listing.id}">${t().share}</button>
+        <a class="primary-action whatsapp-action" href="${listing.whatsapp}" target="_blank" rel="noreferrer">${t().whatsapp}</a>
+        <a class="secondary-action call-action" href="tel:${listing.contact}">${t().call}</a>
+        <a class="secondary-action map-action" href="${listing.mapUrl}" target="_blank" rel="noreferrer">${t().map}</a>
+        <button class="secondary-action share-action" type="button" data-share-listing="${listing.id}">${t().share}</button>
       </div>
+      ${renderQuickFaqs(listing)}
     </aside>
   `;
 };
@@ -419,6 +539,8 @@ const render = () => {
           <h2 id="search-heading">${dict.searchPrompt}</h2>
           <p>${dict.searchHelp}</p>
         </div>
+
+        ${renderQuickLanes()}
 
         <label class="search-label" for="service-search">${dict.searchLabel}</label>
         <input
@@ -486,7 +608,10 @@ const render = () => {
 
       <section class="results-panel" aria-label="${dict.resultsRegion}">
         <div class="results-header">
-          <h2>${filtered.length} ${resultWord}</h2>
+          <div>
+            ${state.lane ? `<span class="active-lane-label">${dict.quickLanes[state.lane].name}</span>` : ""}
+            <h2>${filtered.length} ${resultWord}</h2>
+          </div>
           <p>${dict.sampleNotice}</p>
         </div>
         <div class="listings-grid">
@@ -495,11 +620,19 @@ const render = () => {
       </section>
     </main>
 
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <p class="footer-statement" dir="ltr"><strong>Al Qua'a Services Directory</strong> — Built proudly for the Tatweer Hackathon 2026 prototype evaluation layer.</p>
+        <p class="footer-pride"><span dir="ltr">Proud of the UAE</span><span class="footer-dot" aria-hidden="true">•</span><span dir="rtl">فخورين بالإمارات.</span></p>
+      </div>
+    </footer>
+
     ${renderSelectedPanel(selected)}
   `;
 };
 
 const setFilter = (group, value) => {
+  state.lane = "";
   state[group] = value;
   state.selectedId = "";
   render();
@@ -511,12 +644,34 @@ const resetFilters = () => {
   state.audience = "all";
   state.urgency = "all";
   state.type = "all";
+  state.lane = "";
   state.selectedId = "";
   state.moreFilters = false;
   render();
 };
 
 app.addEventListener("click", async (event) => {
+  const quickLaneButton = event.target.closest("[data-quick-lane]");
+  if (quickLaneButton) {
+    const nextLane = quickLaneButton.dataset.quickLane;
+    state.lane = state.lane === nextLane ? "" : nextLane;
+    state.query = "";
+    state.category = "all";
+    state.audience = "all";
+    state.urgency = "all";
+    state.type = "all";
+    state.selectedId = "";
+    state.moreFilters = false;
+    render();
+    window.requestAnimationFrame(() => {
+      document.querySelector(".results-panel")?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start"
+      });
+    });
+    return;
+  }
+
   const filterButton = event.target.closest("[data-filter-group]");
   if (filterButton) {
     setFilter(filterButton.dataset.filterGroup, filterButton.dataset.filterValue);

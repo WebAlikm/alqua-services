@@ -31,6 +31,7 @@ For Al Qua'a and similar rural communities, the problem is not just internet acc
 The prototype will provide:
 
 - A searchable directory of local services, events, and opportunities.
+- One-click persona lanes for families, farm owners and entrepreneurs, and seniors.
 - Arabic-first layout with clear mobile navigation.
 - Filters by audience, category, and urgency.
 - Direct contact, WhatsApp, and map actions.
