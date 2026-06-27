@@ -1,4 +1,14 @@
-# Al Qua'a Services
+<p align="center">
+  <img src="public/images/alqua-services-logo.png" width="140" alt="Al Qua'a Services logo" />
+</p>
+
+<h1 align="center">Al Qua'a Services</h1>
+
+<p align="center"><strong>Arabic-first local discovery for Al Qua'a residents.</strong></p>
+
+<p align="center">
+  <img src="assets/alqua-services-pride-banner.png" width="100%" alt="Proud of the UAE and Al Qua'a Services banner showing residents beside local farms" />
+</p>
 
 > Tatweer Hackathon 2026 | Challenge 4: Connecting residents to services, opportunities and events
 > Built for Al Qua'a, Al Ain, UAE
@@ -28,7 +38,7 @@ For Al Qua'a and similar rural communities, the problem is not just internet acc
 
 ## Solution
 
-The prototype will provide:
+The prototype provides:
 
 - A searchable directory of local services, events, and opportunities.
 - One-click persona lanes for families, farm owners and entrepreneurs, and seniors.
@@ -36,6 +46,41 @@ The prototype will provide:
 - Filters by audience, category, and urgency.
 - Direct contact, WhatsApp, and map actions.
 - A simple data model that can be reused by another rural community.
+
+## Designed For Real People
+
+> These are fictional personas synthesized from community research. Outcomes are prototype targets until validated through user testing.
+
+<table>
+  <tr>
+    <td width="33%" align="center">
+      <img src="assets/persona-fatima.png" width="220" alt="Fictional portrait of Fatima, an Emirati mother in Al Qua'a" /><br />
+      <strong>Fatima, 45</strong><br />
+      Family and healthcare
+    </td>
+    <td width="33%" align="center">
+      <img src="assets/persona-ahmed.png" width="220" alt="Fictional portrait of Ahmed, an Emirati farm and small-business owner in Al Qua'a" /><br />
+      <strong>Ahmed, 28</strong><br />
+      Farms and business
+    </td>
+    <td width="33%" align="center">
+      <img src="assets/persona-mariam.png" width="220" alt="Fictional portrait of Mariam, an Emirati retiree in Al Qua'a" /><br />
+      <strong>Mariam, 67</strong><br />
+      Seniors and urgent care
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Needs:</strong> Find family healthcare and medicine support in Arabic.<br /><strong>Barrier:</strong> Uses mainly WhatsApp and finds multi-step portals difficult.</td>
+    <td><strong>Needs:</strong> Find farm support, training, and business opportunities.<br /><strong>Barrier:</strong> Information is scattered across posts, chats, and word of mouth.</td>
+    <td><strong>Needs:</strong> Reach healthcare and government-adjacent services confidently.<br /><strong>Barrier:</strong> Low digital confidence means she often depends on family.</td>
+  </tr>
+</table>
+
+| Persona | Before | After with Al Qua'a Services | Target impact |
+| --- | --- | --- | --- |
+| **Fatima** | Calls relatives or searches forwarded messages for the right contact. | Opens **Fatima's Lane**, sees family healthcare, then calls or uses WhatsApp. | Find a relevant service in **3 clicks or fewer**, without signing in. |
+| **Ahmed** | Checks multiple social posts and community chats for farm or business information. | Opens **Ahmed's Lane** for one filtered view of farm services and opportunities. | Reduce discovery to **one clear starting point** with direct action buttons. |
+| **Mariam** | Waits for a family member to navigate unfamiliar websites on her behalf. | Opens **Mariam's Lane**, reads Arabic details, then uses the prominent Call action. | Make urgent service discovery possible with **one lane and one trusted action**. |
 
 ## Success Criteria
 
@@ -50,7 +95,7 @@ These criteria are defined before implementation and will be updated with eviden
 | Accessible interface | No critical accessibility issues in automated checks | [Accessibility](evidence/accessibility.md) |
 | Reusable model | Services, events, and opportunities use one listing structure | [Service coverage](evidence/service-coverage.md) |
 
-Current validation status: **0/6 tested**. The MIT license is already included, but product criteria remain pending until the prototype is built.
+Current validation status: **0/6 tested**. The MIT license is already included, but product criteria remain pending formal testing.
 
 ## Technical Approach
 
@@ -101,6 +146,11 @@ npm run build
 │  ├─ service-coverage.md
 │  ├─ accessibility.md
 │  └─ screenshots/
+├─ assets/
+│  ├─ alqua-services-pride-banner.png
+│  ├─ persona-fatima.png
+│  ├─ persona-ahmed.png
+│  └─ persona-mariam.png
 ├─ data/
 ├─ src/
 ├─ public/
