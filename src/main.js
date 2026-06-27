@@ -1,4 +1,5 @@
 import listings from "../data/sample-listings.json";
+import { footerPageOrder, pageContent, pageOrder } from "./pages.js";
 import "./styles.css";
 
 const app = document.querySelector("#app");
@@ -7,10 +8,17 @@ const dictionaries = {
   ar: {
     appName: "خدمات القوع",
     appDescription: "دليل المجتمع المحلي",
+    home: "الدليل",
+    menu: "القائمة",
+    mainNavigation: "التنقل الرئيسي",
+    footerNavigation: "روابط التذييل",
+    feedback: "الملاحظات",
+    github: "GitHub",
+    version: "الإصدار",
     logoAlt: "شعار خدمات القوع",
-    communityImageTitle: "صورة مجتمع القوع",
-    communityImageCaption: "تصور بصري مولد للنموذج الأولي يعكس الوصول إلى الخدمات المحلية في القوع",
-    communityImageAlt: "تصور مولد لسكان يصلون إلى خدمة مجتمعية بجوار مزارع القوع",
+    communityImageTitle: "الخدمة عند الحاجة",
+    communityImageCaption: "توصيل الدواء، دعم مياه المزارع، نقل كبار السن، وإصلاح المضخات",
+    communityImageAlt: "أربع خدمات في القوع: تسليم دواء، دعم مياه مزرعة، نقل أحد كبار السن، وإصلاح مضخة",
     conceptImage: "صورة تصورية مولدة",
     prideContext: "من القوع، لخدمة كل مجتمع في دولة الإمارات",
     language: "English",
@@ -24,12 +32,14 @@ const dictionaries = {
       { label: "أبحث عن تدريب للشباب", query: "تدريب شباب" },
       { label: "مساعدة لمزرعتي", query: "مزرعة" }
     ],
-    quickLanesTitle: "مسارات سريعة حسب احتياجك",
-    quickLanesHelp: "اختر مسارًا واحدًا لعرض النتائج المناسبة فورًا.",
+    quickLanesTitle: "اختر فئتك",
+    quickLanesHelp: "اختيار واحد يعرض الخدمات المناسبة فورًا.",
     quickLanes: {
-      fatima: { name: "مسار فاطمة", description: "الأسرة والرعاية الصحية" },
-      ahmed: { name: "مسار أحمد", description: "المزارع والأعمال" },
-      mariam: { name: "مسار مريم", description: "كبار السن والرعاية العاجلة" }
+      parent: { icon: "👩", name: "ولي أمر", description: "صحة الأسرة والتعليم" },
+      farmer: { icon: "👨", name: "مزارع", description: "المياه وخدمات المزرعة" },
+      senior: { icon: "👴", name: "كبير سن", description: "الصحة والنقل والدعم" },
+      entrepreneur: { icon: "👩", name: "رائدة أعمال", description: "الأعمال والفرص" },
+      student: { icon: "👦", name: "طالب", description: "التعليم والتدريب والفعاليات" }
     },
     categoryLabel: "تصفح حسب الفئة",
     audienceLabel: "الفئة المستفيدة",
@@ -53,6 +63,10 @@ const dictionaries = {
     share: "مشاركة",
     details: "التفاصيل",
     openDetails: "عرض التفاصيل",
+    urgentBadge: "عاجل",
+    thisWeekBadge: "هذا الأسبوع",
+    opportunityBadge: "فرصة متاحة",
+    nearbyBadge: "داخل القوع",
     close: "إغلاق",
     noResults: "لا توجد نتائج مطابقة. جرّب وصفًا أقصر أو فئة أخرى.",
     sampleNotice: "بيانات تجريبية وليست سجلات رسمية",
@@ -108,10 +122,17 @@ const dictionaries = {
   en: {
     appName: "Al Qua'a Services",
     appDescription: "Local community directory",
+    home: "Directory",
+    menu: "Menu",
+    mainNavigation: "Main navigation",
+    footerNavigation: "Footer links",
+    feedback: "Feedback",
+    github: "GitHub",
+    version: "Version",
     logoAlt: "Al Qua'a Services logo",
-    communityImageTitle: "Al Qua'a community",
-    communityImageCaption: "A generated prototype visual representing access to local services in Al Qua'a",
-    communityImageAlt: "Generated concept of residents accessing a community service beside farms in Al Qua'a",
+    communityImageTitle: "Help where it is needed",
+    communityImageCaption: "Medicine delivery, farm water support, senior transport, and pump repair",
+    communityImageAlt: "Four Al Qua'a services: medicine delivery, farm water support, senior transport, and pump repair",
     conceptImage: "Generated concept image",
     prideContext: "From Al Qua'a, built to serve communities across the UAE",
     language: "العربية",
@@ -125,12 +146,14 @@ const dictionaries = {
       { label: "Find youth training", query: "youth workshop" },
       { label: "Help for my farm", query: "farm" }
     ],
-    quickLanesTitle: "Quick paths for your needs",
-    quickLanesHelp: "Choose one lane to apply the right filters instantly.",
+    quickLanesTitle: "Choose your persona",
+    quickLanesHelp: "One choice shows the right services instantly.",
     quickLanes: {
-      fatima: { name: "Fatima's Lane", description: "Family and healthcare" },
-      ahmed: { name: "Ahmed's Lane", description: "Farms and business" },
-      mariam: { name: "Mariam's Lane", description: "Seniors and urgent care" }
+      parent: { icon: "👩", name: "Parent", description: "Family health and education" },
+      farmer: { icon: "👨", name: "Farmer", description: "Water and farm services" },
+      senior: { icon: "👴", name: "Senior Citizen", description: "Health, transport, and support" },
+      entrepreneur: { icon: "👩", name: "Entrepreneur", description: "Business and opportunities" },
+      student: { icon: "👦", name: "Student", description: "Education, training, and events" }
     },
     categoryLabel: "Browse by category",
     audienceLabel: "Audience",
@@ -154,6 +177,10 @@ const dictionaries = {
     share: "Share",
     details: "Details",
     openDetails: "View details",
+    urgentBadge: "Urgent",
+    thisWeekBadge: "This week",
+    opportunityBadge: "Open opportunity",
+    nearbyBadge: "Nearby",
     close: "Close",
     noResults: "No matching results. Try a shorter description or another category.",
     sampleNotice: "Demo data, not official records",
@@ -201,6 +228,8 @@ const dictionaries = {
 
 const state = {
   lang: "ar",
+  page: "home",
+  menuOpen: false,
   query: "",
   category: "all",
   audience: "all",
@@ -210,6 +239,13 @@ const state = {
   selectedId: "",
   moreFilters: false
 };
+
+const getPageFromHash = () => {
+  const route = window.location.hash.replace(/^#\/?/, "").toLowerCase();
+  return [...pageOrder, ...footerPageOrder].includes(route) ? route : "home";
+};
+
+state.page = getPageFromHash();
 
 const showLaunchScreen = () => {
   if (document.querySelector("#launch-screen")) return;
@@ -252,15 +288,21 @@ const categoryKeys = unique(listings.map((item) => item.category));
 const audienceKeys = unique(listings.flatMap((item) => item.audience));
 const urgencyKeys = ["urgent", "this-week", "normal"];
 const typeKeys = ["service", "event", "opportunity"];
-const quickLaneKeys = ["fatima", "ahmed", "mariam"];
+const quickLaneKeys = ["parent", "farmer", "senior", "entrepreneur", "student"];
+const categoryIcons = {
+  healthcare: "🏥",
+  education: "🎓",
+  business: "💼",
+  community: "🤝",
+  "farm-services": "🌱"
+};
 
 const quickLaneMatchers = {
-  fatima: (listing) => listing.category === "healthcare" && listing.audience.includes("families"),
-  ahmed: (listing) =>
-    ["farm-services", "business"].includes(listing.category) &&
-    listing.audience.some((audience) => ["farm-owners", "entrepreneurs"].includes(audience)),
-  mariam: (listing) =>
-    listing.audience.includes("seniors") && ["urgent", "this-week"].includes(listing.urgency)
+  parent: (listing) => listing.audience.includes("families"),
+  farmer: (listing) => listing.audience.includes("farm-owners"),
+  senior: (listing) => listing.audience.includes("seniors"),
+  entrepreneur: (listing) => listing.audience.includes("entrepreneurs"),
+  student: (listing) => listing.audience.includes("youth")
 };
 
 const ignoredWords = new Set([
@@ -371,8 +413,11 @@ const renderQuickLanes = () => `
           const active = state.lane === key;
           return `
             <button class="quick-lane quick-lane-${key} ${active ? "is-active" : ""}" type="button" data-quick-lane="${key}" aria-pressed="${active}">
-              <strong>${lane.name}</strong>
-              <span>${lane.description}</span>
+              <span class="quick-lane-icon" aria-hidden="true">${lane.icon}</span>
+              <span class="quick-lane-copy">
+                <strong>${lane.name}</strong>
+                <small>${lane.description}</small>
+              </span>
             </button>
           `;
         })
@@ -432,23 +477,38 @@ const renderQuickFaqs = (listing) => {
 
 const renderListingCard = (listing) => {
   const audienceMetadata = listing.audience.map((key) => t().audiences[key] || key).join(" · ");
+  const categoryIcon = categoryIcons[listing.category] || "📍";
+  const highlight =
+    listing.urgency === "urgent"
+      ? { label: t().urgentBadge, className: "is-urgent" }
+      : listing.urgency === "this-week"
+        ? { label: t().thisWeekBadge, className: "is-this-week" }
+        : listing.type === "opportunity"
+          ? { label: t().opportunityBadge, className: "is-opportunity" }
+          : { label: t().nearbyBadge, className: "is-nearby" };
 
   return `
-    <article class="listing-card">
+    <article class="listing-card category-${listing.category} ${highlight.className}">
       <button class="listing-main" type="button" data-select-listing="${listing.id}" aria-label="${t().openDetails}: ${getText(listing.title)}">
-        <span class="listing-type">${t().types[listing.type]}</span>
+        <span class="listing-card-topline">
+          <span class="category-icon" aria-hidden="true">${categoryIcon}</span>
+          <span class="listing-badges">
+            <span class="priority-label">${highlight.label}</span>
+            <span class="listing-type">${t().types[listing.type]}</span>
+          </span>
+        </span>
         <h3>${getText(listing.title)}</h3>
         <p>${getText(listing.summary)}</p>
         <p class="listing-metadata">${t().categories[listing.category]} · ${audienceMetadata}</p>
         <span class="listing-facts">
-          <span><b>${t().location}:</b> ${getLocation(listing)}</span>
-          <span><b>${t().availability}:</b> ${getText(listing.availability)}</span>
+          <span><i aria-hidden="true">📍</i><b>${t().location}:</b> ${getLocation(listing)}</span>
+          <span><i aria-hidden="true">🕐</i><b>${t().availability}:</b> ${getText(listing.availability)}</span>
         </span>
       </button>
       <div class="listing-actions" aria-label="${t().action}">
-        <a class="whatsapp-action" href="${listing.whatsapp}" target="_blank" rel="noreferrer" aria-label="${t().whatsapp}: ${getText(listing.title)}">${t().whatsapp}</a>
-        <a class="call-action" href="tel:${listing.contact}" aria-label="${t().call}: ${getText(listing.title)}">${t().call}</a>
-        <button class="details-action" type="button" data-select-listing="${listing.id}">${t().details}</button>
+        <a class="whatsapp-action" href="${listing.whatsapp}" target="_blank" rel="noreferrer" aria-label="${t().whatsapp}: ${getText(listing.title)}"><span aria-hidden="true">💬</span>${t().whatsapp}</a>
+        <a class="call-action" href="tel:${listing.contact}" aria-label="${t().call}: ${getText(listing.title)}"><span aria-hidden="true">☎</span>${t().call}</a>
+        <button class="details-action" type="button" data-select-listing="${listing.id}"><span aria-hidden="true">→</span>${t().details}</button>
       </div>
     </article>
   `;
@@ -487,6 +547,120 @@ const renderSelectedPanel = (listing) => {
 
 const activeFilterCount = () => [state.audience, state.urgency, state.type].filter((value) => value !== "all").length;
 
+const renderNavLinks = (className) => {
+  const pages = pageContent[state.lang];
+  const links = [
+    { key: "home", label: t().home, icon: "⌂" },
+    ...pageOrder.map((key) => ({ key, label: pages[key].nav, icon: pages[key].icon }))
+  ];
+
+  return `
+    <nav class="${className}" aria-label="${t().mainNavigation}">
+      ${links
+        .map(
+          ({ key, label, icon }) => `
+            <a href="#/${key}" ${state.page === key ? 'aria-current="page"' : ""}>
+              <span aria-hidden="true">${icon}</span>${label}
+            </a>
+          `
+        )
+        .join("")}
+    </nav>
+  `;
+};
+
+const APP_VERSION = "0.1.0";
+
+const renderFooterLinks = () => {
+  const pages = pageContent[state.lang];
+  const internalLinks = ["privacy", "accessibility", "contact", "about"];
+
+  return `
+    <nav class="footer-links" aria-label="${t().footerNavigation}">
+      ${internalLinks
+        .map(
+          (key) => `<a href="#/${key}" ${state.page === key ? 'aria-current="page"' : ""}>${pages[key].nav}</a>`
+        )
+        .join("")}
+      <a href="https://github.com/WebAlikm/alqua-services/issues" target="_blank" rel="noreferrer">${t().feedback}<span aria-hidden="true">↗</span></a>
+      <a href="https://github.com/WebAlikm/alqua-services" target="_blank" rel="noreferrer">${t().github}<span aria-hidden="true">↗</span></a>
+    </nav>
+  `;
+};
+
+const renderInfoItem = (item) => {
+  const action = item.href
+    ? `<a class="info-item-action ${item.tone === "emergency" ? "is-emergency" : ""}" href="${item.href}" ${item.external ? 'target="_blank" rel="noreferrer"' : ""}>${item.action}<span aria-hidden="true">${item.external ? "↗" : "→"}</span></a>`
+    : "";
+
+  return `
+    <article class="info-item ${item.tone === "emergency" ? "is-emergency" : ""}">
+      <span class="info-item-icon" aria-hidden="true">${item.icon}</span>
+      <div>
+        ${item.number ? `<strong class="info-number" dir="ltr">${item.number}</strong>` : ""}
+        <h3>${item.title}</h3>
+        <p>${item.text}</p>
+        ${action}
+      </div>
+    </article>
+  `;
+};
+
+const renderInfoPage = () => {
+  const page = pageContent[state.lang][state.page];
+  if (!page) return "";
+
+  return `
+    <main class="info-main info-page-${state.page}">
+      <header class="info-hero ${page.emergency ? "is-emergency" : ""}">
+        <span class="info-hero-icon" aria-hidden="true">${page.icon}</span>
+        <div>
+          <p>${page.kicker}</p>
+          <h1>${page.title}</h1>
+          <span>${page.intro}</span>
+        </div>
+      </header>
+
+      ${page.notice ? `<aside class="info-notice">${page.notice}</aside>` : ""}
+
+      ${(page.sections || [])
+        .map(
+          (section) => `
+            <section class="info-section">
+              <header>
+                <h2>${section.title}</h2>
+                ${section.intro ? `<p>${section.intro}</p>` : ""}
+              </header>
+              <div class="info-grid">
+                ${section.items.map(renderInfoItem).join("")}
+              </div>
+            </section>
+          `
+        )
+        .join("")}
+
+      ${
+        page.faqs
+          ? `<section class="info-section info-faq-section">
+              <div class="info-faq-list">
+                ${page.faqs
+                  .map(
+                    (faq) => `
+                      <details>
+                        <summary>${faq.question}</summary>
+                        <p>${faq.answer}</p>
+                      </details>
+                    `
+                  )
+                  .join("")}
+              </div>
+            </section>`
+          : ""
+      }
+    </main>
+  `;
+};
+
 const render = () => {
   const dict = t();
   const filtered = getFilteredListings();
@@ -499,15 +673,22 @@ const render = () => {
   document.body.classList.toggle("has-detail", Boolean(selected));
 
   app.innerHTML = `
-    <header class="site-header">
-      <div class="brand">
+    <header class="site-header ${state.menuOpen ? "is-menu-open" : ""}">
+      <a class="brand" href="#/home" aria-label="${dict.appName} - ${dict.home}">
         <img class="brand-logo" src="/images/alqua-services-logo.png" alt="${dict.logoAlt}" width="512" height="512" />
         <div>
           <h1>${dict.appName}</h1>
           <p>${dict.appDescription}</p>
         </div>
+      </a>
+      <div class="header-actions">
+        ${renderNavLinks("desktop-nav")}
+        <button class="menu-toggle" type="button" data-toggle-menu aria-expanded="${state.menuOpen}">
+          <span aria-hidden="true">${state.menuOpen ? "×" : "☰"}</span>${dict.menu}
+        </button>
+        <button class="language-toggle" type="button" data-toggle-language>${dict.language}</button>
       </div>
-      <button class="language-toggle" type="button" data-toggle-language>${dict.language}</button>
+      ${state.menuOpen ? renderNavLinks("mobile-nav") : ""}
     </header>
 
     <section class="uae-pride" aria-label="Proud of the UAE">
@@ -524,11 +705,17 @@ const render = () => {
       </div>
     </section>
 
-    <main>
+    ${state.page === "home" ? `<main>
+      <div class="heritage-band" aria-hidden="true">
+        <span class="heritage-palm">🌴</span>
+        <span class="heritage-phrase" lang="ar" dir="rtl">من القوع، للإمارات</span>
+        <span class="heritage-pattern"></span>
+      </div>
+
       <figure class="community-image">
-        <img src="/images/al-quaa-community.webp" alt="${dict.communityImageAlt}" width="1600" height="640" />
+        <img src="/images/al-quaa-services-hero.webp" alt="${dict.communityImageAlt}" width="1600" height="640" />
         <figcaption>
-          <span>${dict.conceptImage}</span>
+          <span class="concept-label">${dict.conceptImage}</span>
           <h2>${dict.communityImageTitle}</h2>
           <p>${dict.communityImageCaption}</p>
         </figcaption>
@@ -540,27 +727,29 @@ const render = () => {
           <p>${dict.searchHelp}</p>
         </div>
 
-        ${renderQuickLanes()}
+        <div class="search-focus">
+          <label class="search-label" for="service-search">${dict.searchLabel}</label>
+          <input
+            id="service-search"
+            class="search-input"
+            type="search"
+            value="${escapeAttribute(state.query)}"
+            placeholder="${dict.searchPlaceholder}"
+            autocomplete="off"
+          />
 
-        <label class="search-label" for="service-search">${dict.searchLabel}</label>
-        <input
-          id="service-search"
-          class="search-input"
-          type="search"
-          value="${escapeAttribute(state.query)}"
-          placeholder="${dict.searchPlaceholder}"
-          autocomplete="off"
-        />
-
-        <div class="search-examples" aria-label="${dict.examplesLabel}">
-          <span>${dict.examplesLabel}:</span>
-          ${dict.examples
-            .map(
-              (example) =>
-                `<button type="button" data-search-example="${escapeAttribute(example.query)}">${example.label}</button>`
-            )
-            .join("")}
+          <div class="search-examples" aria-label="${dict.examplesLabel}">
+            <span>${dict.examplesLabel}:</span>
+            ${dict.examples
+              .map(
+                (example) =>
+                  `<button type="button" data-search-example="${escapeAttribute(example.query)}">${example.label}</button>`
+              )
+              .join("")}
+          </div>
         </div>
+
+        ${renderQuickLanes()}
 
         ${renderChipGroup({
           label: dict.categoryLabel,
@@ -618,12 +807,22 @@ const render = () => {
           ${filtered.length ? filtered.map(renderListingCard).join("") : `<p class="empty-state">${dict.noResults}</p>`}
         </div>
       </section>
-    </main>
+    </main>` : renderInfoPage()}
 
     <footer class="site-footer">
       <div class="site-footer-inner">
-        <p class="footer-statement" dir="ltr"><strong>Al Qua'a Services Directory</strong> — Built proudly for the Tatweer Hackathon 2026 prototype evaluation layer.</p>
-        <p class="footer-pride"><span dir="ltr">Proud of the UAE</span><span class="footer-dot" aria-hidden="true">•</span><span dir="rtl">فخورين بالإمارات.</span></p>
+        <div class="footer-brand-block">
+          <img src="/images/alqua-services-logo.png" alt="" width="512" height="512" />
+          <div>
+            <p class="footer-statement" dir="ltr"><strong>Al Qua'a Services Directory</strong></p>
+            <p>Built proudly for the Tatweer Hackathon 2026 prototype evaluation layer.</p>
+          </div>
+        </div>
+        ${renderFooterLinks()}
+        <div class="footer-meta">
+          <p class="footer-pride"><span dir="ltr">Proud of the UAE</span><span class="footer-dot" aria-hidden="true">•</span><span dir="rtl">فخورين بالإمارات.</span></p>
+          <p>${dict.version} <span dir="ltr">${APP_VERSION}</span> · Prototype</p>
+        </div>
       </div>
     </footer>
 
@@ -651,6 +850,18 @@ const resetFilters = () => {
 };
 
 app.addEventListener("click", async (event) => {
+  if (event.target.closest("[data-toggle-menu]")) {
+    state.menuOpen = !state.menuOpen;
+    render();
+    return;
+  }
+
+  const routeLink = event.target.closest('a[href^="#/"]');
+  if (routeLink && state.menuOpen) {
+    state.menuOpen = false;
+    if (routeLink.getAttribute("href") === `#/${state.page}`) render();
+  }
+
   const quickLaneButton = event.target.closest("[data-quick-lane]");
   if (quickLaneButton) {
     const nextLane = quickLaneButton.dataset.quickLane;
@@ -695,6 +906,7 @@ app.addEventListener("click", async (event) => {
 
   if (event.target.closest("[data-toggle-language]")) {
     state.lang = state.lang === "ar" ? "en" : "ar";
+    state.menuOpen = false;
     render();
     return;
   }
@@ -742,6 +954,14 @@ app.addEventListener("input", (event) => {
   const searchInput = document.querySelector("#service-search");
   searchInput?.focus();
   searchInput?.setSelectionRange(cursorPosition, cursorPosition);
+});
+
+window.addEventListener("hashchange", () => {
+  state.page = getPageFromHash();
+  state.menuOpen = false;
+  state.selectedId = "";
+  render();
+  window.scrollTo({ top: 0, behavior: "auto" });
 });
 
 document.addEventListener("keydown", (event) => {
