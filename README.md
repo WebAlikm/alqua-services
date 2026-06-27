@@ -14,7 +14,7 @@ Most hackathon projects explain the work after building it. This project uses an
 | --- | --- |
 | Investigation | [Community insights](docs/community-insights.md), [rationale](docs/rationale.md) |
 | Planning | [Success criteria](docs/success-criteria.md), [timeline](docs/timeline.md) |
-| Design | [Technical justification](docs/technical-justification.md), [architecture](docs/architecture.md) |
+| Design | [Technical justification](docs/technical-justification.md), [architecture](docs/architecture.md), [visual asset guide](docs/asset-guide.md) |
 | Testing | [Evidence folder](evidence/) |
 | Evaluation | Validation summary in this README |
 
@@ -66,7 +66,7 @@ This keeps the prototype easy to run, inspect, deploy, and test within the hacka
 
 ## How To Run
 
-The runnable prototype is pending. Current scaffold uses Vite.
+The runnable prototype uses Vite.
 
 ```bash
 npm install
@@ -91,6 +91,7 @@ npm run build
 │  ├─ technical-justification.md
 │  ├─ timeline.md
 │  ├─ community-insights.md
+│  ├─ asset-guide.md
 │  └─ architecture.md
 ├─ evidence/
 │  ├─ README.md
