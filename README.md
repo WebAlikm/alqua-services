@@ -96,7 +96,16 @@ These criteria are defined before implementation and will be updated with eviden
 | Accessible interface | No critical accessibility issues in automated checks | [Accessibility](evidence/accessibility.md) |
 | Reusable model | Services, events, and opportunities use one listing structure | [Service coverage](evidence/service-coverage.md) |
 
-Current validation status: **0/6 tested**. The MIT license is already included, but product criteria remain pending formal testing.
+**Evidence status:** The repository contains reports of user testing, performance, accessibility, and service coverage, but the README previously stated 0/6 criteria tested. Reports require reconciliation with retained raw outputs, test dates, and current deployed behavior. The current JSON dataset contains **20 demonstration listings across five categories** (verified from source), not a verified directory of real providers. See [Validation status](docs/validation-status.md).
+
+## Engineering evidence
+
+- [Architecture and data flow](docs/architecture.md)
+- [Validation status, discrepancies, and next steps](docs/validation-status.md)
+- [Automated listing-data checks](tests/listings.test.mjs) — run with `npm test`
+- [Reported usability sessions](evidence/user-testing.md) — self-reported; independently corroborating artifacts not verified in this review
+
+**Technology clarification:** This repository currently builds with Vite, vanilla JavaScript, HTML, CSS, and local JSON. The repository description's historical Next.js/OpenAI claims do not match the checked-in `package.json`; do not present those integrations as shipped without further evidence.
 
 ## Technical Approach
 
@@ -124,6 +133,12 @@ Production build:
 
 ```bash
 npm run build
+```
+
+Run automated data integrity tests:
+
+```bash
+npm test
 ```
 
 ## Repository Structure
